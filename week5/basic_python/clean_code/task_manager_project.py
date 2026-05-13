@@ -1,4 +1,4 @@
-
+from tabulate import tabulate
 # A list of dictionaries for the tasks
 tasks = [
     {
@@ -28,18 +28,17 @@ tasks = [
     }
 ]
 
-def completion_convert(is_done) -> bool:
+def completion_convert(is_done) -> str:
     return 'completed' if is_done else 'not completed'
 
 
 def print_tasks(tasks: list[dict]) -> None:
+    tasks_copy = []
     for task in tasks:
-        for k , v in task.items():
-            if k == 'is_done':
-                print(completion_convert(v))
-            else:
-                print(f'{k}: {v}')
-        print()
+        task['is_done'] = completion_convert(task['is_done'])
+        tasks_copy.append(task)
+    print(tabulate(tasks_copy))
+
                 
 def finished_tasks(tasks: list[dict]) -> int:
     finished_cnt = 0
@@ -60,11 +59,12 @@ def high_priority_tasks(tasks: list[dict])  -> int:
             cnt += 1
     return cnt
 
-def print_daily_summery(tasks: list[dict]):
+def print_daily_summery(tasks: list[dict]) -> None:
     total_tasks = len(tasks)
     open_tasks = unfinished_tasks(tasks)
     close_tasks = finished_tasks(tasks)
     urgent_tasks = high_priority_tasks(tasks)
+    print()
     print('--- daily summery ---')
     print(f'total tasks: {total_tasks}')
     print(f'open tasks: {open_tasks}')
