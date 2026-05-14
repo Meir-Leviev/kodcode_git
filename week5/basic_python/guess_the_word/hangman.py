@@ -127,5 +127,8 @@ def game_loop():
     else:
         print(winner)
 
+def main():
+    game_loop()
 
-game_loop()
+if __name__ == '__main__':
+    main()  
