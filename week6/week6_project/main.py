@@ -23,7 +23,8 @@ def get_user_choice() -> str:
     Separates getting user input from the logic of processing the choice.
     Allows swapping out the input method in the future (e.g., for a GUI).
     """
-    pass
+    choice = input('Please enter you choice')
+    return choice
 
 
 def handle_add_soldier() -> None:
