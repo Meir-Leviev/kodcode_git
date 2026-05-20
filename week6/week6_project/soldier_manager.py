@@ -1,3 +1,5 @@
+import data as d
+
 def add_soldier(soldier_id: int, name: str) -> None:
     """
     Adds a new soldier to the system.
@@ -21,7 +23,25 @@ def add_soldier(soldier_id: int, name: str) -> None:
     Does not handle I/O - only logic.
     Raises exceptions in case of an error instead of returning False.
     """
-    pass
+    if not soldier_id or not isinstance(soldier_id, int):
+        raise ValueError('Invalid ID')
+    if name:
+        name_parts = name.split()
+        for part in name_parts:
+            if not part.isalpha():
+                raise ValueError('Invalid name')
+    available = True
+    for soldier in d.soldiers_list:
+        if soldier_id in soldier.values():
+            available = False
+            raise ValueError('ID already exists')
+    if available:
+        soldier_dict = {
+            'id': soldier_id,
+            'name': name,
+            'duties': []
+        }
+        d.soldiers_list.append(soldier_dict)
 
 
 def remove_soldier(soldier_id: int) -> None:
@@ -44,7 +64,11 @@ def remove_soldier(soldier_id: int) -> None:
     Checks for existence and removes from the data.
     Raises an exception if the soldier does not exist.
     """
-    pass
+    for soldier in d.soldiers_list:
+        if soldier['id'] == soldier_id:
+            d.soldiers_list.remove(soldier)
+            return
+    raise KeyError(f'id {soldier_id} not found')
 
 
 def get_all_soldiers() -> list:
