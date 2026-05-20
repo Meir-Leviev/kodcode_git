@@ -102,4 +102,5 @@ def get_soldier_duties(soldier_id: int) -> list:
     Raises an exception if the soldier does not exist
     (instead of returning an empty list).
     """
-    pass
+    soldier = utils.find_soldier_by_id(soldier_id)
+    return soldier['duties']
