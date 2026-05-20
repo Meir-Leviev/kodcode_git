@@ -1,76 +1,97 @@
-ef add_duty_to_soldier(soldier_id: int, duty_name: str, day: str) -> None:
+import data as d
+
+
+def add_duty_to_soldier(soldier_id: int, duty_name: str, day: str) -> None:
     """
-    מוסיפה תורנות חדשה לחייל.
+    Adds a new duty to a soldier.
 
-    סוג: לוגיקה עסקית (Business Logic)
+    Type: Business Logic
 
-    מקבלת:
-        soldier_id (int): מספר אישי של החייל
-        duty_name (str): שם התורנות
-        day (str): יום בשבוע (sunday/monday/tuesday/wednesday/thursday)
+    Args:
+        soldier_id (int): Soldier's personal number (ID)
+        duty_name (str): Name of the duty
+        day (str): Day of the week (sunday/monday/tuesday/wednesday/thursday)
 
-    מחזירה:
-        None - הפונקציה מוסיפה את התורנות או זורקת exception
+    Returns:
+        None - The function adds the duty or raises an exception
 
-    זורקת:
-        KeyError: אם חייל עם id זה לא נמצא במערכת
-        ValueError: אם תורנות עם שם זה כבר קיימת לחייל
-        ValueError: אם day לא חוקי (friday/saturday או ערך לא תקין)
+    Raises:
+        KeyError: If a soldier with this ID is not found in the system
+        ValueError: If a duty with this name already exists for the soldier
+        ValueError: If day is invalid (friday/saturday or an invalid value)
 
-    למה הפונקציה קיימת:
-    לוגיקה עסקית של הוספת תורנות.
-    מבצעת בדיקות ומוסיפה תורנות לחייל.
-    זורקת exceptions במקרה של שגיאה במקום להחזיר False.
+    Reason for existence:
+    Business logic for adding a duty.
+    Performs validations and adds a duty to the soldier.
+    Raises exceptions in case of an error instead of returning False.
     """
-    pass
+
+    if day.lower() in 'friday saturday':
+        raise ValueError('Invalid day')
+    tmp_soldier = None
+    for soldier in d.soldiers_list:
+        if soldier['id'] == soldier_id:
+            tmp_soldier = soldier
+    for duty in tmp_soldier['duties']:
+        if duty_name == duty['name']:
+            raise ValueError('Soldier has this ')
+    if tmp_soldier is None:
+        raise ValueError('Soldier not found in the system')    
+    duty = {
+        'name': duty_name,
+        'day': day,
+        'status': "pending"
+    }
+    tmp_soldier['duties'].append(duty)
 
 
 def update_duty_status(soldier_id: int, duty_name: str, new_status: str) -> None:
     """
-    מעדכנת את הסטטוס של תורנות.
+    Updates the status of a duty.
 
-    סוג: לוגיקה עסקית (Business Logic)
+    Type: Business Logic
 
-    מקבלת:
-        soldier_id (int): מספר אישי של החייל
-        duty_name (str): שם התורנות
-        new_status (str): סטטוס חדש (pending/completed/missed)
+    Args:
+        soldier_id (int): Soldier's personal number (ID)
+        duty_name (str): Name of the duty
+        new_status (str): New status (pending/completed/missed)
 
-    מחזירה:
-        None - הפונקציה מעדכנת את הסטטוס או זורקת exception
+    Returns:
+        None - The function updates the status or raises an exception
 
-    זורקת:
-        KeyError: אם חייל עם id זה לא נמצא במערכת
-        KeyError: אם תורנות עם שם זה לא נמצאה לחייל
-        ValueError: אם new_status לא חוקי (לא pending/completed/missed)
+    Raises:
+        KeyError: If a soldier with this ID is not found in the system
+        KeyError: If a duty with this name is not found for the soldier
+        ValueError: If new_status is invalid (not pending/completed/missed)
 
-    למה הפונקציה קיימת:
-    לוגיקה עסקית של עדכון סטטוס.
-    מבצעת בדיקות ומעדכנת את הסטטוס.
-    זורקת exceptions במקרה של שגיאה במקום להחזיר False.
+    Reason for existence:
+    Business logic for updating status.
+    Performs validations and updates the status.
+    Raises exceptions in case of an error instead of returning False.
     """
     pass
 
 
 def get_soldier_duties(soldier_id: int) -> list:
     """
-    מחזירה את רשימת התורנויות של חייל.
+    Returns the list of a soldier's duties.
 
-    סוג: גישה לנתונים (Data Access)
+    Type: Data Access
 
-    מקבלת:
-        soldier_id (int): מספר אישי של החייל
+    Args:
+        soldier_id (int): Soldier's personal number (ID)
 
-    מחזירה:
-        list: רשימת תורנויות (מילונים)
-              רשימה ריקה אם אין תורנויות
+    Returns:
+        list: List of duties (dictionaries)
+              Empty list if there are no duties
 
-    זורקת:
-        KeyError: אם חייל עם id זה לא נמצא במערכת
+    Raises:
+        KeyError: If a soldier with this ID is not found in the system
 
-    למה הפונקציה קיימת:
-    גישה מבוקרת לתורנויות של חייל.
-    מפרידה בין הנתונים לבין הגישה אליהם.
-    זורקת exception אם החייל לא קיים (במקום להחזיר רשימה ריקה).
+    Reason for existence:
+    Controlled access to a soldier's duties.
+    Separates the data from the access to it.
+    Raises an exception if the soldier does not exist
+    (instead of returning an empty list).
     """
     pass
