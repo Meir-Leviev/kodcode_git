@@ -47,7 +47,10 @@ def find_duty_by_name(duties: list, duty_name: str) -> dict | None:
     Centralizes the search logic in one place.
     Returns None instead of raising an exception - allows flexibility.
     """
-    pass
+    for duty in duties:
+        if duty['name'] == duty_name:
+            return duty
+    return None
 
 
 def is_valid_status(status: str) -> bool:
