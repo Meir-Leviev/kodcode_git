@@ -59,11 +59,10 @@ def remove_soldier(soldier_id: int) -> None:
     Checks for existence and removes from the data.
     Raises an exception if the soldier does not exist.
     """
-    for soldier in d.soldiers_list:
-        if soldier['id'] == soldier_id:
-            d.soldiers_list.remove(soldier)
-            return
-    raise KeyError(f'id {soldier_id} not found')
+    soldier = utils.find_soldier_by_id(soldier_id)
+    if soldier is None:
+        raise KeyError(f'id {soldier_id} not found')
+    d.soldiers_list.remove(soldier)
 
 
 def get_all_soldiers() -> list:
