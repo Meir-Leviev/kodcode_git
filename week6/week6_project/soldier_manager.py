@@ -1,5 +1,6 @@
 import data as d
 
+
 def add_soldier(soldier_id: int, name: str) -> None:
     """
     Adds a new soldier to the system.
@@ -89,4 +90,4 @@ def get_all_soldiers() -> list:
     Controlled data access.
     Allows getting the data without directly accessing the global variable.
     """
-    pass
+    return d.soldiers_list
