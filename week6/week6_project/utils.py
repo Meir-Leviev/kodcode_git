@@ -131,7 +131,10 @@ def soldier_has_duty(soldier: dict, duty_name: str) -> bool:
     Centralizes the logic in one place.
     Validation functions return a bool and do not raise exceptions.
     """
-    pass
+    for duty in soldier['duties']:
+        if duty_name == duty['name']:
+            return True
+    return False
 
 
 def is_valid_day(day: str) -> bool:
