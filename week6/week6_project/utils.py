@@ -22,7 +22,7 @@ def find_soldier_by_id(soldier_id: int) -> dict | None:
     Returns None instead of raising an exception - allows flexibility.
     """
     for soldier in d.soldiers_list:
-        if soldier['id'] == soldier_id:
+        if soldier["id"] == soldier_id:
             return soldier
     return None
 
@@ -48,7 +48,7 @@ def find_duty_by_name(duties: list, duty_name: str) -> dict | None:
     Returns None instead of raising an exception - allows flexibility.
     """
     for duty in duties:
-        if duty['name'] == duty_name:
+        if duty["name"] == duty_name:
             return duty
     return None
 
@@ -131,8 +131,8 @@ def soldier_has_duty(soldier: dict, duty_name: str) -> bool:
     Centralizes the logic in one place.
     Validation functions return a bool and do not raise exceptions.
     """
-    for duty in soldier['duties']:
-        if duty_name == duty['name']:
+    for duty in soldier["duties"]:
+        if duty_name == duty["name"]:
             return True
     return False
 
@@ -158,4 +158,5 @@ def is_valid_day(day: str) -> bool:
     In the future, the valid days can be changed in one place.
     Validation functions return a bool and do not raise exceptions.
     """
-    pass
+    valid_days = ["sunday", "monday", "tuesday", "wednesday", "thursday"]
+    return day.lower() in valid_days
