@@ -74,7 +74,8 @@ def is_valid_status(status: str) -> bool:
     It also makes it easier to change valid statuses in the future.
     Validation functions return a bool and do not raise exceptions.
     """
-    pass
+    valid = ['pending', 'completed', 'missed', ]
+    return status in valid
 
 
 def is_valid_name(name: str) -> bool:
