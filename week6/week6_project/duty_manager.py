@@ -68,7 +68,7 @@ def update_duty_status(soldier_id: int, duty_name: str, new_status: str) -> None
     Performs validations and updates the status.
     Raises exceptions in case of an error instead of returning False.
     """
-    for soldier in d.soldiers_list:
+    pass
 
 
 
