@@ -1,4 +1,5 @@
 import data as d
+import utils
 
 
 def add_duty_to_soldier(soldier_id: int, duty_name: str, day: str) -> None:
@@ -26,24 +27,21 @@ def add_duty_to_soldier(soldier_id: int, duty_name: str, day: str) -> None:
     Raises exceptions in case of an error instead of returning False.
     """
 
-    if day.lower() in 'friday saturday':
+    if not utils.is_valid_day(day):
         raise ValueError('Invalid day')
-    tmp_soldier = None
-    for soldier in d.soldiers_list:
-        if soldier['id'] == soldier_id:
-            tmp_soldier = soldier
-            break
-    for duty in tmp_soldier['duties']:
-        if duty_name == duty['name']:
-            raise ValueError('Soldier has this ')
-    if tmp_soldier is None:
-        raise ValueError('Soldier not found in the system')    
+    
+    soldier = utils.find_soldier_by_id(soldier_id)
+    if soldier is None:
+        raise ValueError('Soldier not found in the system')
+
+    if utils.find_duty_by_name(soldier['duties'], duty_name) is not None:
+        raise ValueError('Soldier has this duty')
     duty = {
         'name': duty_name,
         'day': day,
         'status': "pending"
     }
-    tmp_soldier['duties'].append(duty)
+    soldier['duties'].append(duty)
 
 
 def update_duty_status(soldier_id: int, duty_name: str, new_status: str) -> None:
@@ -70,7 +68,8 @@ def update_duty_status(soldier_id: int, duty_name: str, new_status: str) -> None
     Performs validations and updates the status.
     Raises exceptions in case of an error instead of returning False.
     """
-    pass
+    for soldier in d.soldiers_list:
+
 
 
 def get_soldier_duties(soldier_id: int) -> list:
