@@ -1,69 +1,68 @@
 def add_soldier(soldier_id: int, name: str) -> None:
     """
-    מוסיפה חייל חדש למערכת.
+    Adds a new soldier to the system.
 
-    סוג: לוגיקה עסקית (Business Logic)
+    Type: Business Logic
 
-    מקבלת:
-        soldier_id (int): מספר אישי של החייל
-        name (str): שם החייל
+    Args:
+        soldier_id (int): Soldier's personal number (ID)
+        name (str): Soldier's name
 
-    מחזירה:
-        None - הפונקציה מוסיפה את החייל או זורקת exception
+    Returns:
+        None - The function adds the soldier or raises an exception
 
-    זורקת:
-        ValueError: אם id כבר קיים במערכת
-        ValueError: אם name ריק או לא תקין
+    Raises:
+        ValueError: If ID already exists in the system
+        ValueError: If name is empty or invalid
 
-    למה הפונקציה קיימת:
-    לוגיקה עסקית טהורה של הוספת חייל.
-    מבצעת בדיקות תקינות ומוסיפה את החייל לנתונים.
-    לא מטפלת בקלט/פלט - רק בלוגיקה.
-    זורקת exceptions במקרה של שגיאה במקום להחזיר False.
+    Reason for existence:
+    Pure business logic for adding a soldier.
+    Performs validation checks and adds the soldier to the data.
+    Does not handle I/O - only logic.
+    Raises exceptions in case of an error instead of returning False.
     """
     pass
 
 
 def remove_soldier(soldier_id: int) -> None:
     """
-    מסירה חייל מהמערכת לפי id.
+    Removes a soldier from the system by ID.
 
-    סוג: לוגיקה עסקית (Business Logic)
+    Type: Business Logic
 
-    מקבלת:
-        soldier_id (int): מספר אישי של החייל
+    Args:
+        soldier_id (int): Soldier's personal number (ID)
 
-    מחזירה:
-        None - הפונקציה מסירה את החייל או זורקת exception
+    Returns:
+        None - The function removes the soldier or raises an exception
 
-    זורקת:
-        KeyError: אם חייל עם id זה לא נמצא במערכת
+    Raises:
+        KeyError: If a soldier with this ID is not found in the system
 
-    למה הפונקציה קיימת:
-    לוגיקה עסקית של הסרת חייל.
-    מבצעת בדיקת קיום ומסירה מהנתונים.
-    זורקת exception במקרה שהחייל לא קיים.
+    Reason for existence:
+    Business logic for removing a soldier.
+    Checks for existence and removes from the data.
+    Raises an exception if the soldier does not exist.
     """
     pass
 
 
 def get_all_soldiers() -> list:
     """
-    מחזירה את רשימת כל החיילים במערכת.
+    Returns the list of all soldiers in the system.
 
-    סוג: גישה לנתונים (Data Access)
+    Type: Data Access
 
-    מקבלת: כלום
+    Args: None
 
-    מחזירה:
-        list: רשימה של מילונים, כל מילון מייצג חייל
-              רשימה ריקה אם אין חיילים
+    Returns:
+        list: A list of dictionaries, each representing a soldier
+              Empty list if there are no soldiers
 
-    זורקת: כלום - תמיד מחזירה רשימה (ריקה או מלאה)
+    Raises: None - Always returns a list (empty or populated)
 
-    למה הפונקציה קיימת:
-    גישה לנתונים בצורה מבוקרת.
-    מאפשר לקבל את הנתונים מבלי לגשת ישירות למשתנה הגלובלי.
+    Reason for existence:
+    Controlled data access.
+    Allows getting the data without directly accessing the global variable.
     """
     pass
-
