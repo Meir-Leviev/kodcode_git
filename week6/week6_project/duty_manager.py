@@ -32,6 +32,7 @@ def add_duty_to_soldier(soldier_id: int, duty_name: str, day: str) -> None:
     for soldier in d.soldiers_list:
         if soldier['id'] == soldier_id:
             tmp_soldier = soldier
+            break
     for duty in tmp_soldier['duties']:
         if duty_name == duty['name']:
             raise ValueError('Soldier has this ')
