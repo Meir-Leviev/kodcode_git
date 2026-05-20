@@ -99,7 +99,15 @@ def is_valid_name(name: str) -> bool:
     valid characters).
     Validation functions return a bool and do not raise exceptions.
     """
-    pass
+    cleaned_name = name.strip()
+    if not cleaned_name:
+        return False
+
+    name_parts = cleaned_name.split()
+    for part in name_parts:
+        if not part.isalpha():
+            return False
+    return True
 
 
 def soldier_has_duty(soldier: dict, duty_name: str) -> bool:
