@@ -29,7 +29,7 @@ def add_duty_to_soldier(soldier_id: int, duty_name: str, day: str) -> None:
 
     if not utils.is_valid_day(day):
         raise ValueError('Invalid day')
-    
+
     soldier = utils.find_soldier_by_id(soldier_id)
     if soldier is None:
         raise ValueError('Soldier not found in the system')
@@ -68,8 +68,16 @@ def update_duty_status(soldier_id: int, duty_name: str, new_status: str) -> None
     Performs validations and updates the status.
     Raises exceptions in case of an error instead of returning False.
     """
-    pass
+    if not utils.is_valid_status(new_status):
+        raise ValueError('New status is invalid')
 
+    soldier = utils.find_soldier_by_id(soldier_id)
+    if soldier is None:
+        raise KeyError('Soldier not found')
+    duty = utils.find_duty_by_name(soldier['duties'], duty_name)
+    if duty is None:
+        raise KeyError('Duty not found')
+    duty['status'] = new_status
 
 
 def get_soldier_duties(soldier_id: int) -> list:
