@@ -1,4 +1,5 @@
 import data as d
+import utils
 
 
 def add_soldier(soldier_id: int, name: str) -> None:
@@ -24,25 +25,18 @@ def add_soldier(soldier_id: int, name: str) -> None:
     Does not handle I/O - only logic.
     Raises exceptions in case of an error instead of returning False.
     """
-    if not soldier_id or not isinstance(soldier_id, int):
-        raise ValueError('Invalid ID')
-    if name:
-        name_parts = name.split()
-        for part in name_parts:
-            if not part.isalpha():
-                raise ValueError('Invalid name')
-    available = True
-    for soldier in d.soldiers_list:
-        if soldier_id in soldier.values():
-            available = False
-            raise ValueError('ID already exists')
-    if available:
-        soldier_dict = {
-            'id': soldier_id,
-            'name': name,
-            'duties': []
-        }
-        d.soldiers_list.append(soldier_dict)
+    if not utils.is_valid_name(name):
+        raise ValueError('Invalid name')
+
+    if utils.find_soldier_by_id(soldier_id) is not None:
+        raise ValueError('ID already exists')
+
+    soldier_dict = {
+        'id': soldier_id,
+        'name': name,
+        'duties': []
+    }
+    d.soldiers_list.append(soldier_dict)
 
 
 def remove_soldier(soldier_id: int) -> None:
