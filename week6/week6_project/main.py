@@ -13,7 +13,15 @@ def show_menu() -> None:
     Separates the menu display from the business logic.
     If we want to change the display later, we only change it here.
     """
-    pass
+    print("\n--- Soldier Management System ---")
+    print("1. Add a new soldier")
+    print("2. Remove a soldier")
+    print("3. View all soldiers")
+    print("4. Add a duty to a soldier")
+    print("5. Update duty status")
+    print("6. View a soldier's duties")
+    print("7. Exit")
+    print("---------------------------------")
 
 
 def get_user_choice() -> str:
