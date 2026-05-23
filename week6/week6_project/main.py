@@ -176,4 +176,24 @@ def main() -> None:
     Reason for existence:
     The entry point of the program. Manages the primary execution flow.
     """
-    pass
+    while True:
+        show_menu()
+        choice = get_user_choice()
+        if choice == '1':
+            handle_add_soldier()
+        elif choice == '2':
+            handle_remove_soldier()
+        elif choice == '3':
+            handle_view_soldiers()
+        elif choice == '4':
+            handle_add_duty()
+        elif choice == '5':
+            handle_update_duty_status()
+        elif choice == '6':
+            handle_view_soldier_duties()
+        elif choice == '7':
+            break
+
+
+if __name__ == '__main__':
+    main()
