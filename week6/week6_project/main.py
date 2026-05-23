@@ -1,4 +1,5 @@
 import soldier_manager as sm
+import duty_manager as dm
 
 
 def show_menu() -> None:
@@ -92,7 +93,13 @@ def handle_add_duty() -> None:
     Reason for existence:
     Separates the UI from the business logic.
     """
-    pass
+    print("Soldier ID:")
+    soldier_id = get_user_choice()
+    print("Duty name:")
+    duty_name = get_user_choice()
+    print('Day:')
+    day = get_user_choice()
+    dm.add_duty_to_soldier(soldier_id, duty_name, day)
 
 
 def handle_update_duty_status() -> None:
