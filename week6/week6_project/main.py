@@ -133,7 +133,10 @@ def handle_view_soldier_duties() -> None:
     Reason for existence:
     Separates the UI from the business logic.
     """
-    pass
+    print("Soldier ID:")
+    soldier_id = get_user_choice()
+    duties = dm.get_soldier_duties(soldier_id)
+    print(duties)
 
 
 def main() -> None:
