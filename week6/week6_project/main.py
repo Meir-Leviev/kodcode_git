@@ -1,3 +1,6 @@
+import soldier_manager as sm
+
+
 def show_menu() -> None:
     """
     Displays the main menu to the user.
@@ -23,7 +26,7 @@ def get_user_choice() -> str:
     Separates getting user input from the logic of processing the choice.
     Allows swapping out the input method in the future (e.g., for a GUI).
     """
-    choice = input('Please enter you choice')
+    choice = input("Please enter your input -> ")
     return choice
 
 
@@ -40,7 +43,11 @@ def handle_add_soldier() -> None:
     main.py is responsible for user interaction,
     soldier_manager.py is responsible for the logic.
     """
-    pass
+    print("Soldier ID:")
+    soldier_id = get_user_choice()
+    print("Soldier name:")
+    soldier_name = get_user_choice()
+    sm.add_soldier(soldier_id, soldier_name)
 
 
 def handle_remove_soldier() -> None:
