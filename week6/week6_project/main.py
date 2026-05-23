@@ -77,7 +77,8 @@ def handle_view_soldiers() -> None:
     Reason for existence:
     Separates data retrieval from its presentation.
     """
-    pass
+    soldiers = sm.get_all_soldiers()
+    print(soldiers)
 
 
 def handle_add_duty() -> None:
