@@ -168,7 +168,8 @@ def handle_view_soldier_duties() -> None:
 def main() -> None:
     """
     The main function of the program.
-    Runs the main loop that displays a menu, gets a choice, and executes an action.
+    Runs the main loop that displays a menu, gets a choice,
+    and executes an action.
 
     Args: None
     Returns: None
@@ -176,6 +177,28 @@ def main() -> None:
     Reason for existence:
     The entry point of the program. Manages the primary execution flow.
     """
+    title = r"""
+
+  ____        _     _ _
+ / ___|  ___ | | __| (_) ___ _ __
+ \___ \ / _ \| |/ _` | |/ _ \ '__|
+  ___) | (_) | | (_| | |  __/ |
+ |____/ \___/|_|\__,_|_|\___|_|
+
+  __  __                                                   _
+ |  \/  | __ _ _ __   __ _  __ _ ___ _ __ ___   ___ _ __ | |_
+ | |\/| |/ _` | '_ \ / _` |/ _` / _ \ '_ ` _ \ / _ \ '_ \| __|
+ | |  | | (_| | | | | (_| | (_| |  __/ | | | | |  __/ | | | |_
+ |_|  |_|\__,_|_| |_|\__,_|\__, \___|_| |_| |_|\___|_| |_|\__|
+                           |___/
+  ____            _
+ / ___| _   _ ___| |_ ___ _ __ ___
+ \___ \| | | / __| __/ _ \ '_ ` _ \
+  ___) | |_| \__ \ ||  __/ | | | | |
+ |____/ \__, |___/\__\___|_| |_| |_|
+        |___/
+"""
+    print(title)
     while True:
         show_menu()
         choice = get_user_choice()
