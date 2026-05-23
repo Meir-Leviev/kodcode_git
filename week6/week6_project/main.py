@@ -48,7 +48,11 @@ def handle_add_soldier() -> None:
     soldier_id = get_user_choice()
     print("Soldier name:")
     soldier_name = get_user_choice()
-    sm.add_soldier(soldier_id, soldier_name)
+    try:
+        sm.add_soldier(soldier_id, soldier_name)
+        print('Soldier added successfully!')
+    except ValueError as e:
+        print(f'Error: {e}')
 
 
 def handle_remove_soldier() -> None:
@@ -64,7 +68,11 @@ def handle_remove_soldier() -> None:
     """
     print('To remove a soldier enter soldier ID')
     soldier_id = get_user_choice()
-    sm.remove_soldier(soldier_id)
+    try:
+        sm.remove_soldier(soldier_id)
+        print('Soldier removed successfully!')
+    except KeyError as e:
+        print(f'Error: {e}')
 
 
 def handle_view_soldiers() -> None:
@@ -99,7 +107,11 @@ def handle_add_duty() -> None:
     duty_name = get_user_choice()
     print('Day:')
     day = get_user_choice()
-    dm.add_duty_to_soldier(soldier_id, duty_name, day)
+    try:
+        dm.add_duty_to_soldier(soldier_id, duty_name, day)
+        print('Duty added successfully!')
+    except ValueError as e:
+        print(f'Error: {e}')
 
 
 def handle_update_duty_status() -> None:
@@ -119,7 +131,13 @@ def handle_update_duty_status() -> None:
     duty_name = get_user_choice()
     print('New status:')
     status = get_user_choice()
-    dm.update_duty_status(soldier_id, duty_name, status)
+    try:
+        dm.update_duty_status(soldier_id, duty_name, status)
+        print('Update successfully!')
+    except ValueError as e:
+        print(f'Error: {e}')
+    except KeyError as e:
+        print(f'Error: {e}')
 
 
 def handle_view_soldier_duties() -> None:
