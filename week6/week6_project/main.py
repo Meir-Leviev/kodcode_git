@@ -113,7 +113,13 @@ def handle_update_duty_status() -> None:
     Reason for existence:
     Separates the UI from the business logic.
     """
-    pass
+    print("Soldier ID:")
+    soldier_id = get_user_choice()
+    print("Duty name:")
+    duty_name = get_user_choice()
+    print('New status:')
+    status = get_user_choice()
+    dm.update_duty_status(soldier_id, duty_name, status)
 
 
 def handle_view_soldier_duties() -> None:
