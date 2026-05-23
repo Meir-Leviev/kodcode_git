@@ -61,7 +61,9 @@ def handle_remove_soldier() -> None:
     Reason for existence:
     Separates the UI from the business logic.
     """
-    pass
+    print('To remove a soldier enter soldier ID')
+    soldier_id = get_user_choice()
+    sm.remove_soldier(soldier_id)
 
 
 def handle_view_soldiers() -> None:
