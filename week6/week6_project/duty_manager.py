@@ -1,4 +1,3 @@
-import data as d
 import utils
 
 
