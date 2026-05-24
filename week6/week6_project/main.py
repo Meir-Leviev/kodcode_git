@@ -1,5 +1,6 @@
 import soldier_manager as sm
 import duty_manager as dm
+from tabulate import tabulate
 
 
 def show_menu() -> None:
@@ -95,7 +96,10 @@ def handle_view_soldiers() -> None:
     Separates data retrieval from its presentation.
     """
     soldiers = sm.get_all_soldiers()
-    print(soldiers)
+    if soldiers is not None:
+        print(tabulate(soldiers, headers='keys'))
+    else:
+        print('Soldier not found')
 
 
 def handle_add_duty() -> None:
@@ -162,7 +166,10 @@ def handle_view_soldier_duties() -> None:
     print("Soldier ID:")
     soldier_id = get_user_choice()
     duties = dm.get_soldier_duties(soldier_id)
-    print(duties)
+    if duties is not None:
+        print(tabulate(duties, headers='keys'))
+    else:
+        print('Not found')
 
 
 def main() -> None:
