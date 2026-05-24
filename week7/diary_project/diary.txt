@@ -1,0 +1,4 @@
+2024-01-15: It was a busy day on the project
+2024-01-16: I learned about File Handling in Python
+2024-01-17: I completed the first exercise!
+2024-01-18: Wonderful day - finished exercise 1!
