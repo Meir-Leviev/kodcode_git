@@ -97,7 +97,11 @@ def handle_view_soldiers() -> None:
     """
     soldiers = sm.get_all_soldiers()
     if soldiers is not None:
-        print(tabulate(soldiers, headers='keys'))
+        # Only names and IDs without duties to keep it clean
+        clean_data = [{k: v for k, v in d.items()
+                       if k != 'duties'} for d in soldiers]
+        print(tabulate(clean_data, headers='keys',
+                       tablefmt='rounded_grid'))
     else:
         print('Soldier not found')
 
@@ -167,7 +171,7 @@ def handle_view_soldier_duties() -> None:
     soldier_id = get_user_choice()
     duties = dm.get_soldier_duties(soldier_id)
     if duties is not None:
-        print(tabulate(duties, headers='keys'))
+        print(tabulate(duties, headers='keys', tablefmt='rounded_grid'))
     else:
         print('Not found')
 
