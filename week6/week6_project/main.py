@@ -36,7 +36,7 @@ def get_user_choice() -> str:
     Separates getting user input from the logic of processing the choice.
     Allows swapping out the input method in the future (e.g., for a GUI).
     """
-    choice = input("Please enter your input -> ")
+    choice = input(" -> ")
     return choice
 
 
@@ -145,7 +145,7 @@ def handle_update_duty_status() -> None:
     soldier_id = get_user_choice()
     print("Duty name:")
     duty_name = get_user_choice()
-    print('New status:')
+    print('New status (pending/completed/missed):')
     status = get_user_choice()
     try:
         dm.update_duty_status(soldier_id, duty_name, status)
@@ -170,10 +170,10 @@ def handle_view_soldier_duties() -> None:
     print("Soldier ID:")
     soldier_id = get_user_choice()
     duties = dm.get_soldier_duties(soldier_id)
-    if duties is not None:
-        print(tabulate(duties, headers='keys', tablefmt='rounded_grid'))
+    if duties is None or not duties:
+        print('No duties found')
     else:
-        print('Not found')
+        print(tabulate(duties, headers='keys', tablefmt='rounded_grid'))
 
 
 def main() -> None:
