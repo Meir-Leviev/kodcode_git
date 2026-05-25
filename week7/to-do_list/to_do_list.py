@@ -57,6 +57,17 @@ def list_tasks(filename):
         print(f"{status} {task['id']} | {task['desc']}")
 
 
+def remove_task(filename, task_id: str):
+    tasks = load_tasks(filename)
+    for task in tasks:
+        if task['id'] == task_id:
+            tasks.remove(task)
+            save_tasks(filename, tasks)
+            return
+    print('Task not found')
+    return
+
+
 def main():
     FILENAME = "tasks.txt"
     while True:
@@ -64,7 +75,8 @@ def main():
         print('1. View Tasks')
         print('2. Add Task')
         print('3. Mark as Completed')
-        print('4. Exit')
+        print('4. Remove task')
+        print('"q". Exit')
         choice = input('Choice: ')
 
         if choice == '1':
@@ -77,6 +89,9 @@ def main():
             task_id = input('Task number: ')
             complete_task(FILENAME, task_id)
         elif choice == '4':
+            task_id = input('Task number: ')
+            remove_task(FILENAME, task_id)
+        elif choice == 'q':
             print('Goodbye!')
             break
         else:
