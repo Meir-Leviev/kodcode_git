@@ -4,6 +4,12 @@ class Rectangle(Shape):
     def __init__(self, width,  height):
         self.height = height
         self.width = width
-        self.area = width * height
-        self.perimeter = 2 * (width + height)
-        
+
+    def get_area(self):
+        return self.width * self.height
+
+    def get_perimeter(self):
+        return 2 * (self.width + self.height)
+
+    def __str__(self):
+        return f"Rectangle (Width: {self.width}, Height: {self.height})"
