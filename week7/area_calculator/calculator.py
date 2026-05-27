@@ -1,15 +1,26 @@
+from abc import ABC, abstractmethod
 
-class Shape:
-    def __init__(self):
-        pass
+class Shape(ABC):
+    """
+    A base class representing a general geometric shape.
+    """
 
+    @abstractmethod
     def get_area(self):
+        """
+        Calculate and return the area of the shape.
+        """
         pass
 
+    @abstractmethod
     def get_perimeter(self):
+        """
+        Calculate and return the perimeter of the shape.
+        """
         pass
 
     def __str__(self):
-        return 'Description of this object'
-
-
+        """
+        Return a clear string representation of the object.
+        """
+        return f"This is a general Shape."
