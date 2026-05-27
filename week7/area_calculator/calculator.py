@@ -23,4 +23,6 @@ class Shape(ABC):
         """
         Return a clear string representation of the object.
         """
-        return f"This is a general Shape."
+        return f"shape: {self.__class__.__name__},"\
+            f"Area: {self.get_area()}, Perimeter: {self.get_perimeter()}"
+    

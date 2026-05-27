@@ -11,5 +11,3 @@ class Hexagon(Shape):
 
     def get_perimeter(self):
         return 6 * self.side
-
-        

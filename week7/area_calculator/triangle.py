@@ -12,6 +12,3 @@ class Triangle(Rectangle):
 
     def get_perimeter(self):
         return self.side_a + self.side_b + self.side_c
-
-
-
