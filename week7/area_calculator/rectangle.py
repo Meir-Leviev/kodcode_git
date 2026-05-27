@@ -10,6 +10,3 @@ class Rectangle(Shape):
 
     def get_perimeter(self):
         return 2 * (self.width + self.height)
-
-    def __str__(self):
-        return f"Rectangle (Width: {self.width}, Height: {self.height})"
