@@ -1,4 +1,5 @@
 import json
+import os
 
 class ShapeManager:
     def __init__(self):
@@ -28,6 +29,13 @@ class ShapeManager:
             json.dump(self.shapes, f, indent=4, ensure_ascii=False)
 
     def load_from_json(self):
-        with open('shapes.json', 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        return data
+        # Check if the file exists before trying to open it
+        if os.path.exists('shapes.json'):
+            try:
+                with open('shapes.json', 'r', encoding='utf-8') as f:
+                    self.shapes = json.load(f)
+            except json.JSONDecodeError:
+                # Handle empty or corrupted JSON file
+                self.shapes = []
+        else:
+            self.shapes = []
