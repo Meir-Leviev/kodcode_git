@@ -13,15 +13,15 @@ class ShapeManager:
         return self.shapes
 
     def update_shape(self, shape_id, new_data):
-        for shape in self.shapes:
-            if shape['id'] == shape_id:
-                shape = new_data
+        for i, shape in enumerate(self.shapes):
+            if shape.get('id') == shape_id:
+                self.shapes[i] = new_data
                 break
 
     def delete_shape(self, shape_id):
         for shape in self.shapes:
-            if shape['id'] == shape_id:
-                shape.remove(shape)
+            if shape.get('id') == shape_id:
+                self.shapes.remove(shape)
                 break
 
     def save_to_json(self):
