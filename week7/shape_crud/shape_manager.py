@@ -26,7 +26,7 @@ class ShapeManager:
 
     def save_to_json(self):
         with open('shapes.json', 'w', encoding='utf-8') as f:
-            json.dump(self.shapes, f, indent=4, ensure_ascii=False)
+            json.dump(self.shapes, f, indent=4)
 
     def load_from_json(self):
         # Check if the file exists before trying to open it
