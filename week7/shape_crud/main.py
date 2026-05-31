@@ -32,26 +32,26 @@ def create_id():
     return 1
 
 
-def set_square():
+def set_square(shape_id):
     side = float(input("Enter square side length: "))
     shape = square.Square(shape_id, "Square", side)
     return shape
 
 
-def set_rectangle():
+def set_rectangle(shape_id):
     width = float(input("Enter rectangle width: "))
     height = float(input("Enter rectangle height: "))
     shape = rectangle.Rectangle(shape_id, "Rectangle", width, height)
     return shape
 
 
-def set_circle():
+def set_circle(shape_id):
     radius = float(input("Enter circle radius: "))
     shape = circle.Circle(shape_id, "Circle", radius)
     return shape
 
 
-def set_triangle():
+def set_triangle(shape_id):
     width = float(input("Enter triangle width (base): "))
     height = float(input("Enter triangle height: "))
     side_a = float(input("Enter side A length: "))
@@ -63,13 +63,13 @@ def set_triangle():
     return shape
 
 
-def set_hexagon():
+def set_hexagon(shape_id):
     side = float(input("Enter hexagon side length: "))
     shape = hexagon.Hexagon(shape_id, "Hexagon", side)
     return shape
 
 
-if __name__ == "__main__":
+def main():
     manager = sm.ShapeManager()
 
     while True:
@@ -86,19 +86,19 @@ if __name__ == "__main__":
             shape = None
             try:
                 if shape_choice == "1":
-                    shape = set_square()
+                    shape = set_square(shape_id)
 
                 elif shape_choice == "2":
-                    shape = set_rectangle()
+                    shape = set_rectangle(shape_id)
 
                 elif shape_choice == "3":
-                    shape = set_circle()
+                    shape = set_circle(shape_id)
 
                 elif shape_choice == "4":
-                    shape = set_triangle()
+                    shape = set_triangle(shape_id)
 
                 elif shape_choice == "5":
-                    shape = set_hexagon()
+                    shape = set_hexagon(shape_id)
 
                 else:
                     print("Invalid shape choice.")
@@ -140,19 +140,19 @@ if __name__ == "__main__":
                 print(f"Detected shape type: {old_shape.get('type')}")
 
                 if shape_type == "square":
-                    shape = set_square()
+                    shape = set_square(shape_id)
 
                 elif shape_type == "rectangle":
-                    shape = set_rectangle()
+                    shape = set_rectangle(shape_id)
 
                 elif shape_type == "circle":
-                    shape = set_circle()
+                    shape = set_circle(shape_id)
 
                 elif shape_type == "triangle":
-                    shape = set_triangle()
+                    shape = set_triangle(shape_id)
 
                 elif shape_type == "hexagon":
-                    shape = set_hexagon()
+                    shape = set_hexagon(shape_id)
 
                 # save the update
                 if shape:
@@ -180,3 +180,7 @@ if __name__ == "__main__":
 
         else:
             print("Invalid choice, please try again .")
+
+
+if __name__ == "__main__":
+    main()
