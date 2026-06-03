@@ -24,8 +24,8 @@ def print_shapes_menu():
     print("5. Hexagon")
 
 
-def create_id():
-    shapes = sm.ShapeManager().get_all_shapes()
+def create_id(manager):
+    shapes = manager.get_all_shapes()
     if shapes:
         last_id = int(shapes[-1].get("id"))
         return last_id + 1

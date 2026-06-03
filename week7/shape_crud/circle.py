@@ -16,5 +16,5 @@ class Circle(Shape):
         return {
             "id": self.id,
             "type": self.shape_type,
-            "side": self.radius
+            "area": self.get_area()
         }

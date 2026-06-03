@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "type": "Square",
+        "area": 16.0
+    },
+    {
+        "id": 2,
+        "type": "Rectangle",
+        "area": 42.0
+    },
+    {
+        "id": 3,
+        "type": "Circle",
+        "area": 30.974846927333925
+    },
+    {
+        "id": 4,
+        "type": "Triangle",
+        "area": 10.0
+    },
+    {
+        "id": 5,
+        "type": "Hexagon",
+        "area": 127.30573435631248
+    },
+    {
+        "id": 6,
+        "type": "circle",
+        "area": 6.9
+    }
+]

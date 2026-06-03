@@ -17,5 +17,5 @@ class Hexagon(Shape):
         return {
             "id": self.id,
             "type": self.shape_type,
-            "side": self.side
+            "area": self.get_area()
         }
