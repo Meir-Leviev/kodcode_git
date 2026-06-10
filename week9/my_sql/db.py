@@ -22,7 +22,6 @@ def get_schema() -> list:
     return [{"column": row[0], "type": row[1]} for row in rows]  # type: ignore
 
 
-
 # INSERT logic
 def create(name: str, rank: str, unit: str) -> int:
     conn = get_connection()
@@ -79,9 +78,9 @@ def delete(soldier_id: int) -> bool:
 
 def get_all() -> list:
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True) # returns dicts instead of tuples
+    cursor = conn.cursor(dictionary=True)  # returns dicts instead of tuples
 
-    cursor.execute("SELECT * FROM soldiers")
+    cursor.execute("SELECT * FROM soldiers ORDER BY id ASC")
     rows = cursor.fetchall()
     cursor.close()
     conn.close()
@@ -93,7 +92,20 @@ def get_by_id(soldier_id: int) -> dict | None:
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM soldiers WHERE id = %s", (soldier_id,))
 
-    row = cursor.fetchone() # returns one dict or None
+    row = cursor.fetchone()  # returns one dict or None
     cursor.close()
     conn.close()
     return row
+
+
+def get_name_and_rank() -> list:
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("SELECT name, `rank` FROM soldiers")
+    rows = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+    return rows
+
