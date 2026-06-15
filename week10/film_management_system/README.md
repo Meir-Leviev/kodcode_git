@@ -1,5 +1,6 @@
 # FILM-MANAGEMENT-SYSTEM
 ## A simple API server to manage films
+#### Requests using `curl` or `Postman`
 #### Memory only
 - No database
 - No file
@@ -62,3 +63,32 @@ film_management_system/
 | GET | /movies/count | movies count |
 | DELETE | /movies | delete all movies |
 
+---
+## System Flow
+` client request > server accept > server read/write the list in data.py >  send respond `
+
+---
+## How To Run The Server
+- Create a virtual environment
+```
+# windows
+
+python -m venv .venv
+./.venv/Scripts/activate
+```
+```
+# macOS/linux
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+```
+- install requirements
+```
+pip install -r requirements.txt
+```
+- Run `python main.py`  to activate the server
+```
+cd ~/film_management_system
+python main.py
+```
