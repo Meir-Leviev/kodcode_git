@@ -1,0 +1,58 @@
+movies = [
+    {
+        "id": 1,
+        "title": "Inception",
+        "year": 2010,
+        "genre": "Sci-Fi",
+        "available": True,
+    },
+    {
+        "id": 2,
+        "title": "The Dark Knight",
+        "year": 2008,
+        "genre": "Action",
+        "available": True,
+    },
+    {
+        "id": 3,
+        "title": "Interstellar",
+        "year": 2014,
+        "genre": "Sci-Fi",
+        "available": False,
+    },
+    {
+        "id": 4,
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "genre": "Crime",
+        "available": True,
+    },
+    {
+        "id": 5,
+        "title": "The Matrix",
+        "year": 1999,
+        "genre": "Sci-Fi",
+        "available": True,
+    },
+    {
+        "id": 6,
+        "title": "Spirited Away",
+        "year": 2001,
+        "genre": "Animation",
+        "available": False,
+    },
+    {
+        "id": 7,
+        "title": "Parasite",
+        "year": 2019,
+        "genre": "Thriller",
+        "available": True,
+    },
+    {
+        "id": 8,
+        "title": "The Godfather",
+        "year": 1972,
+        "genre": "Drama",
+        "available": True,
+    },
+]
